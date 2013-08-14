@@ -1,0 +1,79 @@
+.panel {
+	position:fixed;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	background:#FFF;
+	box-shadow: 3px 3px 5px 6px #ccc;
+    z-index: -1000;
+    height:100%;
+    padding: 20px;
+}
+.panel section {
+    position: relative;
+}
+.panel .controls {
+    position: absolute;
+    top: -1.5em;
+    margin: 0;
+    padding: 0;
+}
+
+.panel[aria-hidden=false]{
+    z-index:10000;
+}
+
+/*TODO: only display nav-menu when in mobile width
+Push the rest of the screen over when navmenu triggers.
+*/
+
+.fade, .fade[aria-hidden=true] {
+	opacity: 0;
+    top: 0;
+    left: 0;
+}
+
+.fade .in,.fade[aria-hidden=false] {
+    opacity: 1;
+}
+
+.slide-right .in, .slide-right[aria-hidden=true] {
+	right:-1000%;
+	top:0;
+}
+
+.slide-right .in, .slide-right[aria-hidden=false]{
+	right:0;
+    top:0;
+}
+
+.slide-top .in, .slide-top[aria-hidden=true] {
+	top:-1000%;
+	left:0;
+}
+
+.slide-top .in, .slide-top[aria-hidden=false]{
+	top:0;
+    left: 0;
+}
+
+.panel header {
+    width: 100%;
+    background-color: #ddd;
+}
+
+nav ul li {
+    list-style-type: none;
+}
+
+header h1 {
+    display: inline-block;
+    margin: 1%;
+}
+
+header a {
+    float: right;
+    margin: 1%;
+}
