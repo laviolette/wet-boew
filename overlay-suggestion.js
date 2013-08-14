@@ -57,6 +57,35 @@
 })(jQuery);
 
 (function($) {
+  /*
+  Init
+  */
+
+  $(document).on('wb-timerpoke', '.wb-overlay', function(event) {
+    var _elm;
+    _elm = $(this);
+    _elm.data('state', 'initing');
+    Modernizr.load([
+      {
+        load: "site!myscript.js"
+      }, {
+        complete: function(elm) {
+          return _elm._trigger('wb-dependencies-loaded');
+        }
+      }
+    ]);
+    return void 0;
+  });
+  $(document).on('wb-dependencies-loaded', '.wb-overlay', function(event) {
+    var _elm;
+    _elm = $(this);
+    _elm.data('state', 'inited');
+    return window._timer.remove('.wb-overlay');
+  });
+  return window._timer.add('.wb-overlay');
+})(jQuery);
+
+(function($) {
   $(document).on('click keypress', '[aria-controls]', function(event) {
     var _elm;
     event.stopPropagation();
